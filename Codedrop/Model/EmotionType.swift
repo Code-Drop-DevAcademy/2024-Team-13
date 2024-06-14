@@ -8,9 +8,18 @@
 import Foundation
 
 struct EmotionType{
-    var anger: String
-    var lethargic: String
-    var anxiety: String
-    var guilty: String
-    var sadness: String
+    
+    var anger: String // 분노
+    var lethargic: String // 무기력함
+    var anxiety: String // 불안감
+    var guilty: String // 죄책감
+    var sadness: String // 슬픔
+    
+    init(anger: String, lethargic: String, anxiety: String, guilty: String, sadness: String) {
+        self.anger = "anger"
+        self.lethargic = "lethargic"
+        self.anxiety = "anxiety"
+        self.guilty = "guilty"
+        self.sadness = "sadness"
+    }
 }

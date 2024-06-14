@@ -15,8 +15,8 @@ class Emotion{
     var date: Date
     var emotionType: String
     var emotionLevel: Int
-    var situation: String
-    var treatment: String
+    var situation: String // 감정의 상황이나 이유
+    var treatment: String // 나의 대처
     
     init(id: UUID = UUID(), date: Date, emotionType: String, emotionLevel: Int, situation: String, treatment: String) {
         self.id = id
