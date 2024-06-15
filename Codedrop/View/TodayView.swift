@@ -37,6 +37,7 @@ struct TodayView: View {
                                 .font(.pretendardBold26)
                         }
                         Spacer()
+                        NavigationLink(destination: EmotionListView(), label: {Image(systemName: "list.bullet.circle.fill").resizable().frame(width: 32,height: 32).foregroundStyle(Color.black)}).padding(.trailing,20)
                     }
                     .padding(.top, 58)
                     .padding(.leading,20)
@@ -45,7 +46,7 @@ struct TodayView: View {
                     VStack {
                         ZStack {
                             Image("anger").resizable()
-                                .frame(width: 260,height: 260)
+                                .frame(width: 300,height: 300)
                             
                             Chart(todayEmotion, id: \.title) { element in
                                 SectorMark(

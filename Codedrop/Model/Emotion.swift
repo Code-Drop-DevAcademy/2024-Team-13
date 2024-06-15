@@ -14,11 +14,11 @@ class Emotion{
     @Attribute(.unique) var id = UUID()
     var date: Date
     var emotionType: String
-    var emotionLevel: Int
+    var emotionLevel: Double
     var situation: String // 감정의 상황이나 이유
     var treatment: String // 나의 대처
     
-    init(id: UUID = UUID(), date: Date, emotionType: String, emotionLevel: Int, situation: String, treatment: String) {
+    init(id: UUID = UUID(), date: Date, emotionType: String, emotionLevel: Double, situation: String, treatment: String) {
         self.id = id
         self.date = date
         self.emotionType = emotionType

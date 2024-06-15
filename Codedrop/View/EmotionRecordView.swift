@@ -12,6 +12,7 @@ struct EmotionRecordView: View {
     @Environment(\.modelContext) var modelContext
     @Query var emotions: [Emotion]
     
+    @Environment(\.dismiss) private var dismiss
 //    private let emotion: Emotion
     let emotionType = EmotionType(anger: "분노", lethargic: "무기력함", anxiety: "불안함", guilty: "죄책감", sadness: "슬픔")
     @State private var selectedDate = Date()
@@ -47,7 +48,14 @@ struct EmotionRecordView: View {
                 }
                 
                 Section {
-                    Slider(value: $value, in: 0...100)
+                    VStack{
+                        HStack{
+                            Text("0")
+                            Slider(value: $value, in: 0...100)
+                            Text("100")
+                        }.padding().frame(height: 40)
+                        Text("지금 나의 감정 온도는 \(Int(value))도 예요.")
+                    }
                 } header: {
                     Text("감정 레벨")
                 }
@@ -68,8 +76,10 @@ struct EmotionRecordView: View {
             }
         }.toolbar { // <- 저장 버튼
             Button {
-                let newEmotion = Emotion(date: selectedDate, emotionType: selectedEmotion, emotionLevel: Int(value), situation: inputText, treatment: inputText2)
+                let newEmotion = Emotion(date: selectedDate, emotionType: selectedEmotion, emotionLevel: value, situation: inputText, treatment: inputText2)
                 insertEmotion(newEmotion)
+                
+                dismiss()
             } label: {
                 Text("저장")
             }
