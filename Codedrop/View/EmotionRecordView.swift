@@ -37,11 +37,11 @@ struct EmotionRecordView: View {
                 
                 Section { // 오늘의 감정
                     Picker("오늘의 감정 선택하기", selection: $selectedEmotion){
-                        Text(emotionType.anger).tag(emotionType.anger)
-                        Text(emotionType.anxiety).tag(emotionType.anxiety)
-                        Text(emotionType.guilty).tag(emotionType.guilty)
-                        Text(emotionType.lethargic).tag(emotionType.lethargic)
-                        Text(emotionType.sadness).tag(emotionType.sadness)
+                        Text("분노").tag(emotionType.anger)
+                        Text("불안").tag(emotionType.anxiety)
+                        Text("죄책감").tag(emotionType.guilty)
+                        Text("무기력함").tag(emotionType.lethargic)
+                        Text("슬픔").tag(emotionType.sadness)
                     }
                 } header: {
                     Text("날짜 설정")

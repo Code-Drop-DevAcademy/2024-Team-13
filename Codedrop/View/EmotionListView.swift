@@ -26,7 +26,7 @@ struct EmotionListView: View {
     }
     func formattedDate(date: Date) -> String {
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm:ss"  // 원하는 형식으로 포맷팅
+            formatter.dateFormat = "yyyy년 MM월 dd일"  // 원하는 형식으로 포맷팅
             return formatter.string(from: date)
         }
 }

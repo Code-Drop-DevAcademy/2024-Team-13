@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 import Charts
 
+
 struct EmotionOfDay: Identifiable {
     let id = UUID()
     let title: String
@@ -17,14 +18,17 @@ struct EmotionOfDay: Identifiable {
 }
 
 struct TodayView: View {
-    @Environment(\.modelContext) var modelContext
-    @Query var emotions: [Emotion]
 
+    @Environment(\.modelContext) var modelContext
+    
+    @Query var emotions: [Emotion]
+    
+    
     @State private var todayEmotion: [EmotionOfDay] = [
         .init(title: "Week", revenue: 50, color: Color.white),
         .init(title: "Day", revenue: 50, color: Color.anger)
     ]
-    
+
     var body: some View {
         NavigationStack{
             ZStack {
@@ -66,6 +70,7 @@ struct TodayView: View {
                             }
                         }
                         
+                       
                         ZStack {
                             RoundedRectangle(cornerRadius: 18)
                                 .frame(width: 310,height: 67).foregroundStyle(Color.white).shadow(color: .black.opacity(0.1), radius: 10,x: 0,y:10)
@@ -73,7 +78,7 @@ struct TodayView: View {
                                 VStack {
                                     Text("오늘의 기록").font(.pretendardMedium14)
                                         .padding(.bottom, 5)
-                                    Text("3회")
+                                    Text("3")
                                         .font(.pretendardSemiBold18)
                                 }.padding(EdgeInsets(top: 12, leading: 45, bottom: 12, trailing: 45))
                                 
@@ -83,9 +88,12 @@ struct TodayView: View {
                                 VStack {
                                     Text("오늘의 감정").font(.pretendardMedium14)
                                         .padding(.bottom, 5)
-                                    Circle()
-                                        .fill(Color.gray)
-                                        .frame(width: 24, height: 24)
+                                    HStack{
+                                        Text("불안감")
+                                        Circle()
+                                            .fill(Color.anxiety)
+                                            .frame(width: 24, height: 24)
+                                    }
                                 }.padding(EdgeInsets(top: 12, leading: 45, bottom: 12, trailing: 45))
                             }
                         }
