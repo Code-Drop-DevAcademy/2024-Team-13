@@ -31,4 +31,7 @@ struct CodedropApp: App {
                 .modelContainer(modelContainer)
         }
     }
+    init(){
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
+    }
 }
